@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "8c80b6de-282c-406b-a77a-fee3e169d293",
+		"name": "Tyba-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{environment}}/api/tyba-backend/user/login",
+					"host": [
+						"{{environment}}"
+					],
+					"path": [
+						"api",
+						"tyba-backend",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{environment}}/api/tyba-backend/user/login",
+					"host": [
+						"{{environment}}"
+					],
+					"path": [
+						"api",
+						"tyba-backend",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{environment}}/api/tyba-backend/user/restaurants",
+					"host": [
+						"{{environment}}"
+					],
+					"path": [
+						"api",
+						"tyba-backend",
+						"user",
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{environment}}/api/tyba-backend/user/restaurants",
+					"host": [
+						"{{environment}}"
+					],
+					"path": [
+						"api",
+						"tyba-backend",
+						"user",
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{environment}}/api/tyba-backend/user/login",
+					"host": [
+						"{{environment}}"
+					],
+					"path": [
+						"api",
+						"tyba-backend",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
