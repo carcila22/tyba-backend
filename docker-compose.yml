@@ -1,0 +1,44 @@
+version: '3'
+services:
+  dev:
+    image: tyba-backend-app
+    build: .
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      - 'spring.datasource.url=jdbc:postgresql://postgres:5432/tyba_backend'
+    depends_on:
+      - redis
+      - postgres
+    volumes:
+      - kotlinvolume:/var/lib/kotlin
+    networks:
+      - kotlinnetwork
+      - postgresnetwork
+  redis:
+    image: redis:alpine
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    volumes:
+      - './postgres_data:/var/lib/postgresql/data'
+    environment:
+      - POSTGRES_PASSWORD=adminadmin
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=tyba_backend
+    ports:
+      - '5432:5432'
+    networks:
+      - postgresnetwork
+volumes:
+  postgres-data:
+  kotlinvolume:
+
+networks:
+  kotlinnetwork:
+    driver_opts:
+      com.docker.network.bridge.name: kotlinNetwork
+  postgresnetwork:
+    driver_opts:
+      com.docker.network.bridge.name: postgresNetwork
