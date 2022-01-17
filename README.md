@@ -19,7 +19,11 @@ Se construyeron los siguientes endpoints:
 
 * Logout: Recibe el token, lo valida, lo almacena en un redis de dados de baja, y valida en cada operación que el token no haya sido dado de baja en un login.
 
+### Ejecutar API:
 
-### Postman
+* Ubicarse en la raíz del proyecto.
+* Ejecutar los siguiente comandos:
+    1. docker build -t tyba-backend .
+    2. docker-compose up -d
 
-* Se agrega colección de postman Tyba-project.postman_collection
+* Acceder a los endpoint definidos mediante el swagger.

@@ -1,7 +1,7 @@
 version: '3'
 services:
   dev:
-    image: tyba-backend-app
+    image: tyba-backend
     build: .
     ports:
       - "8080:8080"
@@ -16,13 +16,19 @@ services:
     networks:
       - kotlinnetwork
       - postgresnetwork
+      - redisnetwork
   redis:
     image: redis:alpine
+    ports:
+      - '6379:6379'
+    networks:
+      - redisnetwork
   postgres:
     image: 'postgres:latest'
     restart: always
     volumes:
       - './postgres_data:/var/lib/postgresql/data'
+      - './src/main/resources/migration/V1.1__create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql'
     environment:
       - POSTGRES_PASSWORD=adminadmin
       - POSTGRES_USER=postgres
@@ -37,8 +43,5 @@ volumes:
 
 networks:
   kotlinnetwork:
-    driver_opts:
-      com.docker.network.bridge.name: kotlinNetwork
   postgresnetwork:
-    driver_opts:
-      com.docker.network.bridge.name: postgresNetwork
+  redisnetwork:
